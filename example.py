@@ -15,19 +15,19 @@ if not os.getenv("AZURE_OPENAI_SERVICE") or not os.getenv("AZURE_OPENAI_GPT_DEPL
     exit(1)
 
 
-credential = azure.identity.DefaultAzureCredential()
+# Change this to AzureCliCredential, DefaultAzureCredential, or another credential type if needed
+credential = azure.identity.AzureDeveloperCliCredential(tenant_id=os.environ["AZURE_TENANT_ID"])
 token_provider = azure.identity.get_bearer_token_provider(credential, "https://cognitiveservices.azure.com/.default")
 
 client = openai.OpenAI(
-    base_url=f"https://{os.getenv('AZURE_OPENAI_SERVICE')}.openai.azure.com/openai/v1",
+    base_url=f"https://{os.environ['AZURE_OPENAI_SERVICE']}.openai.azure.com/openai/v1",
     api_key=token_provider,
 )
 
 response = client.chat.completions.create(
     # For Azure OpenAI, the model parameter must be set to the deployment name
-    model=os.getenv("AZURE_OPENAI_GPT_DEPLOYMENT"),
+    model=os.environ["AZURE_OPENAI_GPT_DEPLOYMENT"],
     temperature=0.7,
-    n=1,
     messages=[
         {"role": "system", "content": "You are a helpful assistant that makes lots of cat references and uses emojis."},
         {"role": "user", "content": "Write a haiku about a hungry cat who wants tuna"},

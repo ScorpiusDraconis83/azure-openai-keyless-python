@@ -2,4 +2,16 @@
 
 name: azure-openai-keyless-python
 metadata:
-  template: azure-openai-keyless-python@0.0.4
+  template: azure-openai-keyless-python@0.0.5
+hooks:
+  postprovision:
+    windows:
+      shell: pwsh
+      run: ./infra/write_dot_env.ps1
+      interactive: false
+      continueOnError: false
+    posix:
+      shell: sh
+      run: ./infra/write_dot_env.sh
+      interactive: false
+      continueOnError: false

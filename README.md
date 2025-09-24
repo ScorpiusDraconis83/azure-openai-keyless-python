@@ -117,19 +117,7 @@ A related option is VS Code Dev Containers, which will open the project in your 
     azd env set AZURE_LOCATION "yournewlocationname"
     ```
 
-3. When `azd` has finished, you should have an OpenAI account you can use locally when logged into your Azure account. You can output the necessary environment variables into an `.env` file by running a script:
-
-    For Mac OS X / Linux:
-
-    ```shell
-    ./write_dot_env.sh
-    ```
-
-    For Windows:
-
-    ```shell
-    pwsh ./write_dot_env.ps1
-    ```
+3. Once the resources are provisioned, you should now see a local `.env` file with all the environment variables needed to run the scripts.
 
 4. Then you can proceed to [run the Python example](#running-the-python-example).
 
@@ -140,7 +128,7 @@ A related option is VS Code Dev Containers, which will open the project in your 
 2. Install the requirements:
 
     ```shell
-    python -m pip install -r requirements.txt
+    pip install -r requirements.txt
     ```
 
 3. Run the example:
@@ -155,7 +143,7 @@ A related option is VS Code Dev Containers, which will open the project in your 
 
 ### Costs
 
-This template creates only the Azure OpenAI resource, which is free to provision. However, you will be charged for the usage of the Azure OpenAI chat completions API. The pricing is based on the number of tokens used, with around 1-3 tokens used per word. You can find the pricing details for the OpenAI API on the [Azure Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
+This template creates only the Azure OpenAI resource, which is free to provision. However, you will be charged for the usage of the Azure OpenAI chat completions API. The pricing is based on the number of tokens used, with around 1-3 tokens used per word. You can find the pricing details for the OpenAI API on the [Azure OpenAI pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
 
 ### Security guidelines
 
