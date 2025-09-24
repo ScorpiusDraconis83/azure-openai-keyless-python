@@ -128,7 +128,7 @@ A related option is VS Code Dev Containers, which will open the project in your 
 2. Install the requirements:
 
     ```shell
-    pip install -r requirements.txt
+    python -m pip install -r requirements.txt
     ```
 
 3. Run the example:
