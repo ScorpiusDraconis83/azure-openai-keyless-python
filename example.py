@@ -19,7 +19,7 @@ credential = azure.identity.DefaultAzureCredential()
 token_provider = azure.identity.get_bearer_token_provider(credential, "https://cognitiveservices.azure.com/.default")
 
 client = openai.OpenAI(
-    base_url=f"https://{os.getenv('AZURE_OPENAI_SERVICE')}.openai.azure.com",
+    base_url=f"https://{os.getenv('AZURE_OPENAI_SERVICE')}.openai.azure.com/openai/v1",
     api_key=token_provider,
 )
 
